@@ -250,12 +250,11 @@ header p {
 }
 
 .voice-item.playing::before {
-    content: '▶';
+    content: '';
     position: absolute;
     left: 16px;
     color: white;
     font-size: 14px;
-    animation: pulse 1s infinite;
 }
 
 @keyframes pulse {
