@@ -227,18 +227,16 @@ function showHeroVoiceModal(hero) {
     hero.voices.forEach(voice => {
         const voiceItem = document.createElement('div');
         voiceItem.className = 'voice-item';
-        voiceItem.innerHTML = `
-            <div class="voice-text">${voice.text}</div>
-            <button class="play-button" data-hero-id="${hero.id}" data-voice-id="${voice.id}">
-                ▶
-            </button>
-        `;
+        // 移除播放按钮，只保留台词文本
+        voiceItem.innerHTML = `<div class="voice-text">${voice.text}</div>`;
+        // 添加数据属性用于识别语音
+        voiceItem.dataset.heroId = hero.id;
+        voiceItem.dataset.voiceId = voice.id;
+        
         voiceListContainer.appendChild(voiceItem);
         
-        // 绑定播放按钮事件
-        const playButton = voiceItem.querySelector('.play-button');
-        playButton.addEventListener('click', function(e) {
-            e.stopPropagation(); // 阻止事件冒泡
+        // 绑定整个语音项的点击事件
+        voiceItem.addEventListener('click', function() {
             playVoice(this);
         });
     });
@@ -260,75 +258,73 @@ function closeModal() {
         window.currentAudio.pause();
         window.currentAudio = null;
     }
-    // 重置所有播放按钮
-    document.querySelectorAll('.play-button').forEach(btn => {
-        btn.classList.remove('playing');
-        btn.textContent = '▶';
+    // 重置所有语音项的播放状态
+    document.querySelectorAll('.voice-item').forEach(item => {
+        item.classList.remove('playing');
     });
 }
 
-
-
 // 播放语音
-function playVoice(button) {
-    // 重置所有播放按钮
-    document.querySelectorAll('.play-button').forEach(btn => {
-        btn.classList.remove('playing');
-        btn.textContent = '▶';
+function playVoice(voiceItem) {
+    // 获取当前语音项的标识
+    const heroId = voiceItem.dataset.heroId;
+    const voiceId = voiceItem.dataset.voiceId;
+    
+    // 检查是否正在播放相同的语音
+    const isCurrentlyPlaying = voiceItem.classList.contains('playing');
+    
+    // 重置所有语音项的播放状态
+    document.querySelectorAll('.voice-item').forEach(item => {
+        item.classList.remove('playing');
     });
     
-    // 如果正在播放相同的音频，停止播放
-    if (window.currentAudio && !window.currentAudio.paused) {
+    // 停止当前播放的音频（如果有）
+    if (window.currentAudio) {
         window.currentAudio.pause();
         window.currentAudio = null;
-        return;
     }
     
-    // 标记当前按钮为播放中
-    button.classList.add('playing');
-    button.textContent = '◼';
-    
-    // 获取英雄和语音信息
-    const heroId = button.dataset.heroId;
-    const voiceId = button.dataset.voiceId;
-    const hero = heroData.find(h => h.id == heroId);
-    const voice = hero?.voices.find(v => v.id == voiceId);
-    
-    if (voice && voice.audio) {
-        // 创建新的Audio对象播放真实音频
-        window.currentAudio = new Audio(voice.audio);
+    // 如果不是正在播放的语音，或者用户想要重新播放
+    if (!isCurrentlyPlaying) {
+        // 标记当前语音项为播放中
+        voiceItem.classList.add('playing');
         
-        window.currentAudio.onended = function() {
-            // 音频播放结束后重置按钮状态
-            button.classList.remove('playing');
-            button.textContent = '▶';
-            window.currentAudio = null;
-        };
+        // 获取英雄和语音信息
+        const hero = heroData.find(h => h.id == heroId);
+        const voice = hero?.voices.find(v => v.id == voiceId);
         
-        window.currentAudio.onerror = function() {
-            // 处理音频加载错误
-            console.error('音频加载失败:', voice.audio);
-            button.classList.remove('playing');
-            button.textContent = '▶';
-            window.currentAudio = null;
-        };
-        
-        // 开始播放
-        window.currentAudio.play().catch(error => {
-            console.error('播放失败:', error);
-            button.classList.remove('playing');
-            button.textContent = '▶';
-            window.currentAudio = null;
-        });
-    } else {
-        // 如果没有音频文件，使用模拟播放
-        console.log(`模拟播放英雄语音: ${hero?.name} - ${voice?.text}`);
-        
-        // 模拟播放结束
-        setTimeout(() => {
-            button.classList.remove('playing');
-            button.textContent = '▶';
-        }, 2000);
+        if (voice && voice.audio) {
+            // 创建新的Audio对象播放真实音频
+            window.currentAudio = new Audio(voice.audio);
+            
+            window.currentAudio.onended = function() {
+                // 音频播放结束后重置状态
+                voiceItem.classList.remove('playing');
+                window.currentAudio = null;
+            };
+            
+            window.currentAudio.onerror = function() {
+                // 处理音频加载错误
+                console.error('音频加载失败:', voice.audio);
+                voiceItem.classList.remove('playing');
+                window.currentAudio = null;
+            };
+            
+            // 开始播放
+            window.currentAudio.play().catch(error => {
+                console.error('播放失败:', error);
+                voiceItem.classList.remove('playing');
+                window.currentAudio = null;
+            });
+        } else {
+            // 如果没有音频文件，使用模拟播放
+            console.log(`模拟播放英雄语音: ${hero?.name} - ${voice?.text}`);
+            
+            // 模拟播放结束
+            setTimeout(() => {
+                voiceItem.classList.remove('playing');
+            }, 2000);
+        }
     }
 }
 
