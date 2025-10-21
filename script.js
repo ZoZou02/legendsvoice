@@ -1,0 +1,351 @@
+// 英雄数据
+const heroData = [
+    // {
+    //     id: 1,
+    //     name: '盖伦',
+    //     color: '#ef4444',
+    //     voices: [
+    //         { id: 1, text: '人在塔在！', audio: '' },
+    //         { id: 2, text: '生命，即是荣耀。', audio: '' },
+    //         { id: 3, text: '正义，与我同在！', audio: '' }
+    //     ]
+    // },
+    // {
+    //     id: 2,
+    //     name: '亚索',
+    //     color: '#0ea5e9',
+    //     voices: [
+    //         { id: 1, text: '死亡如风，常伴吾身。', audio: '' },
+    //         { id: 2, text: '吾虽浪迹天涯，却未迷失本心。', audio: '' },
+    //         { id: 3, text: '长路漫漫，唯剑作伴。', audio: '' }
+    //     ]
+    // },
+    // {
+    //     id: 3,
+    //     name: '拉克丝',
+    //     color: '#8b5cf6',
+    //     voices: [
+    //         { id: 1, text: '照亮前进的道路！', audio: '' },
+    //         { id: 2, text: '我会保护大家的！', audio: '' },
+    //         { id: 3, text: '魔法，是梦想的现实。', audio: '' }
+    //     ]
+    // },
+    // {
+    //     id: 4,
+    //     name: '薇恩',
+    //     color: '#14b8a6',
+    //     voices: [
+    //         { id: 1, text: '让我们来猎杀那些陷入黑暗中的人吧。', audio: '' },
+    //         { id: 2, text: '木已成舟。', audio: '' },
+    //         { id: 3, text: '干净利落。', audio: '' }
+    //     ]
+    // },
+    // {
+    //     id: 5,
+    //     name: '提莫',
+    //     color: '#10b981',
+    //     voices: [
+    //         { id: 1, text: '提莫队长正在待命！', audio: '' },
+    //         { id: 2, text: '一，二，三，四……', audio: '' },
+    //         { id: 3, text: '有什么东西正在动！', audio: '' }
+    //     ]
+    // },
+    // {
+    //     id: 6,
+    //     name: '李青',
+    //     color: '#f59e0b',
+    //     voices: [
+    //         { id: 1, text: '双眼失明丝毫不影响我追捕敌人，因为我能闻到他们身上的恐惧。', audio: '' },
+    //         { id: 2, text: '真正的大师永远都怀着一颗学徒的心。', audio: '' },
+    //         { id: 3, text: '集中起来的意志可以击穿顽石。', audio: '' }
+    //     ]
+    // },
+    // {
+    //     id: 7,
+    //     name: '金克丝',
+    //     color: '#ec4899',
+    //     voices: [
+    //         { id: 1, text: '我有最美好的初衷！', audio: '' },
+    //         { id: 2, text: '规则，就是用来打破的！', audio: '' },
+    //         { id: 3, text: '你是我最喜欢的靶子~', audio: '' }
+    //     ]
+    // },
+    // {
+    //     id: 8,
+    //     name: '卡特琳娜',
+    //     color: '#9333ea',
+    //     voices: [
+    //         { id: 1, text: '暴力可以解决一切！', audio: '' },
+    //         { id: 2, text: '开始大杀特杀吧！', audio: '' },
+    //         { id: 3, text: '为什么？因为我能！', audio: '' }
+    //     ]
+    // },
+    // {
+    //     id: 9,
+    //     name: '孙悟空',
+    //     color: '#eab308',
+    //     voices: [
+    //         { id: 1, text: '俺老孙来也！', audio: '' },
+    //         { id: 2, text: '取经之路才刚刚开始！', audio: '' },
+    //         { id: 3, text: '吃俺老孙一棒！', audio: '' }
+    //     ]
+    // },
+    // {
+    //     id: 10,
+    //     name: '伊泽瑞尔',
+    //     color: '#3b82f6',
+    //     voices: [
+    //         { id: 1, text: '是时候表演真正的技术了！', audio: '' },
+    //         { id: 2, text: '在别的游戏里，像我这么帅的一般都是主角哦！', audio: '' },
+    //         { id: 3, text: '我忙于四处流浪，铸就了现在的我。', audio: '' }
+    //     ]
+    // },
+    // {
+    //     id: 11,
+    //     name: '锤石',
+    //     color: '#475569',
+    //     voices: [
+    //         { id: 1, text: '羊肠小径的另一头，是片光明。', audio: '' },
+    //         { id: 2, text: '我们要怎样进行这令人愉悦的折磨呢？', audio: '' },
+    //         { id: 3, text: '灵魂的价值，重若千钧。', audio: '' }
+    //     ]
+    // },
+    // {
+    //     id: 12,
+    //     name: '阿狸',
+    //     color: '#d946ef',
+    //     voices: [
+    //         { id: 1, text: '我们心有灵犀，不是吗？', audio: '' },
+    //         { id: 2, text: '大发慈悲？太迟了。', audio: '' },
+    //         { id: 3, text: '想玩个游戏吗？', audio: '' }
+    //     ]
+    // },
+    {
+        id: 13,
+        name: '库奇',
+        color: '#6366f1',
+        icon: 'static/icon/Corki.png',
+        voices: [
+              { id: 1, text: '王牌飞行员申请出战！', audio: 'static/voice/库奇/库奇_1.mp3' },
+              { id: 2, text: '十二点钟方向发现敌人！', audio: 'static/voice/库奇/库奇_2.mp3' },
+              { id: 3, text: '就来~就来~', audio: 'static/voice/库奇/库奇_3.mp3' },
+              { id: 4, text: '哦！都乱了套了', audio: 'static/voice/库奇/库奇_4.mp3' },
+              { id: 5, text: '我的尾部有一名敌军!', audio: 'static/voice/库奇/库奇_5.mp3' },
+              { id: 6, text: '开始投弹！', audio: 'static/voice/库奇/库奇_6.mp3' },
+              { id: 7, text: '蜂窝傻瓜', audio: 'static/voice/库奇/库奇_7.mp3' },
+              { id: 8, text: '呃啊啊啊', audio: 'static/voice/库奇/库奇_8.mp3' },
+              { id: 9, text: '大部分人都会打飞机~', audio: 'static/voice/库奇/库奇_9.mp3' },
+              { id: 10, text: '嘻嘻哈哈', audio: 'static/voice/库奇/库奇_10.mp3' },
+              { id: 11, text: '咦嘻嘻~我正在追尾！', audio: 'static/voice/库奇/库奇_11.mp3' },
+              { id: 12, text: '激情在燃烧！', audio: 'static/voice/库奇/库奇_12.mp3' },
+              { id: 13, text: '打得漂亮！', audio: 'static/voice/库奇/库奇_13.mp3' },
+              { id: 14, text: '飙到极限啦！', audio: 'static/voice/库奇/库奇_14.mp3' },
+              { id: 15, text: '随时可以起飞！', audio: 'static/voice/库奇/库奇_15.mp3' },
+              { id: 16, text: '嚯哦！', audio: 'static/voice/库奇/库奇_16.mp3' },
+              { id: 17, text: '呼叫地面控制！', audio: 'static/voice/库奇/库奇_17.mp3' },
+              { id: 18, text: '软蛋！', audio: 'static/voice/库奇/库奇_18.mp3' }
+        ]
+    }
+];
+
+// 初始化页面
+function init() {
+    const heroGrid = document.getElementById('heroGrid');
+    
+    // 清空网格
+    heroGrid.innerHTML = '';
+    
+    // 动态生成英雄头像网格
+    heroData.forEach(hero => {
+        const heroAvatar = document.createElement('div');
+        heroAvatar.className = 'hero-avatar';
+        heroAvatar.dataset.heroId = hero.id;
+        
+        // 检查英雄是否有头像图片
+        const hasIcon = hero.icon && hero.icon.trim() !== '';
+        
+        // 生成英雄头像内容
+          heroAvatar.innerHTML = `
+              <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background-color: ${hero.color};">
+                  ${hasIcon ? `<img src="${hero.icon}" alt="${hero.name}" class="hero-image">` : `<span style="font-size: 3rem; font-weight: bold; color: white;">${hero.name.charAt(0)}</span>`}
+              </div>
+              <div class="hero-name-overlay">
+                  <h3>${hero.name}</h3>
+              </div>
+          `;
+        
+        // 添加到网格
+        heroGrid.appendChild(heroAvatar);
+        
+        // 绑定点击事件，显示弹窗
+        heroAvatar.addEventListener('click', () => {
+            showHeroVoiceModal(hero);
+        });
+    });
+    
+    // 绑定弹窗关闭按钮事件
+    document.getElementById('closeModal').addEventListener('click', closeModal);
+    
+    // 点击弹窗外部关闭弹窗
+    const modal = document.getElementById('voiceModal');
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+    
+    // 按ESC键关闭弹窗
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+}
+
+// 显示英雄语音弹窗
+function showHeroVoiceModal(hero) {
+    // 设置弹窗标题
+    document.getElementById('modalHeroName').textContent = hero.name;
+    
+    // 为不同英雄设置不同的弹窗背景
+    const modalHeader = document.getElementById('modalHeroName').parentElement;
+    if (hero.name === '库奇' && hero.icon) {
+        // 为库奇设置特定的皮肤背景，确保图片中心填充对齐，降低透明度以显示更多图片内容
+        modalHeader.style.backgroundImage = `linear-gradient(rgba(79, 70, 229, 0.5), rgba(99, 102, 241, 0.5)), url('static/icon/skins_Corki_Splash_0.jpg')`;
+        modalHeader.style.backgroundSize = 'cover';
+        modalHeader.style.backgroundPosition = 'center';
+        modalHeader.style.backgroundRepeat = 'no-repeat';
+    } else {
+        // 为其他英雄使用纯色背景，降低透明度
+        modalHeader.style.background = `linear-gradient(${hero.color}55, ${hero.color}88)`;
+    }
+    
+    // 清空并填充语音列表
+    const voiceListContainer = document.getElementById('modalVoiceList');
+    voiceListContainer.innerHTML = '';
+    
+    hero.voices.forEach(voice => {
+        const voiceItem = document.createElement('div');
+        voiceItem.className = 'voice-item';
+        voiceItem.innerHTML = `
+            <div class="voice-text">${voice.text}</div>
+            <button class="play-button" data-hero-id="${hero.id}" data-voice-id="${voice.id}">
+                ▶
+            </button>
+        `;
+        voiceListContainer.appendChild(voiceItem);
+        
+        // 绑定播放按钮事件
+        const playButton = voiceItem.querySelector('.play-button');
+        playButton.addEventListener('click', function(e) {
+            e.stopPropagation(); // 阻止事件冒泡
+            playVoice(this);
+        });
+    });
+    
+    // 显示弹窗
+    document.getElementById('voiceModal').style.display = 'flex';
+    
+    // 禁止页面滚动
+    document.body.style.overflow = 'hidden';
+}
+
+// 关闭弹窗
+function closeModal() {
+    document.getElementById('voiceModal').style.display = 'none';
+    // 恢复页面滚动
+    document.body.style.overflow = 'auto';
+    // 停止当前播放的音频
+    if (window.currentAudio) {
+        window.currentAudio.pause();
+        window.currentAudio = null;
+    }
+    // 重置所有播放按钮
+    document.querySelectorAll('.play-button').forEach(btn => {
+        btn.classList.remove('playing');
+        btn.textContent = '▶';
+    });
+}
+
+
+
+// 播放语音
+function playVoice(button) {
+    // 重置所有播放按钮
+    document.querySelectorAll('.play-button').forEach(btn => {
+        btn.classList.remove('playing');
+        btn.textContent = '▶';
+    });
+    
+    // 如果正在播放相同的音频，停止播放
+    if (window.currentAudio && !window.currentAudio.paused) {
+        window.currentAudio.pause();
+        window.currentAudio = null;
+        return;
+    }
+    
+    // 标记当前按钮为播放中
+    button.classList.add('playing');
+    button.textContent = '◼';
+    
+    // 获取英雄和语音信息
+    const heroId = button.dataset.heroId;
+    const voiceId = button.dataset.voiceId;
+    const hero = heroData.find(h => h.id == heroId);
+    const voice = hero?.voices.find(v => v.id == voiceId);
+    
+    if (voice && voice.audio) {
+        // 创建新的Audio对象播放真实音频
+        window.currentAudio = new Audio(voice.audio);
+        
+        window.currentAudio.onended = function() {
+            // 音频播放结束后重置按钮状态
+            button.classList.remove('playing');
+            button.textContent = '▶';
+            window.currentAudio = null;
+        };
+        
+        window.currentAudio.onerror = function() {
+            // 处理音频加载错误
+            console.error('音频加载失败:', voice.audio);
+            button.classList.remove('playing');
+            button.textContent = '▶';
+            window.currentAudio = null;
+        };
+        
+        // 开始播放
+        window.currentAudio.play().catch(error => {
+            console.error('播放失败:', error);
+            button.classList.remove('playing');
+            button.textContent = '▶';
+            window.currentAudio = null;
+        });
+    } else {
+        // 如果没有音频文件，使用模拟播放
+        console.log(`模拟播放英雄语音: ${hero?.name} - ${voice?.text}`);
+        
+        // 模拟播放结束
+        setTimeout(() => {
+            button.classList.remove('playing');
+            button.textContent = '▶';
+        }, 2000);
+    }
+}
+
+// 搜索功能（预留）
+function searchHeroes(keyword) {
+    const heroAvatars = document.querySelectorAll('.hero-avatar');
+    keyword = keyword.toLowerCase();
+    
+    heroAvatars.forEach(avatar => {
+        const heroName = avatar.querySelector('.hero-name-overlay h3').textContent.toLowerCase();
+        if (heroName.includes(keyword)) {
+            avatar.style.display = 'block';
+        } else {
+            avatar.style.display = 'none';
+        }
+    });
+}
+
+// 页面加载完成后初始化
+window.addEventListener('DOMContentLoaded', init);

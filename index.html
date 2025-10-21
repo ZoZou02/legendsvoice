@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英雄联盟英雄语音</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="static/icon/lol-homepagecarousellogo.png" alt="英雄联盟图标" class="lol-logo">
+            <p>点击头像查看语音列表</p>
+        </header>
+        
+        <main>
+            <div class="hero-grid" id="heroGrid">
+                <!-- 英雄头像网格将通过JavaScript动态生成 -->
+            </div>
+        </main>
+        
+        <footer>
+            <p>英雄联盟英雄语音 &copy; 2025 zozou</p>
+        </footer>
+    </div>
+    
+    <!-- 语音列表弹窗 -->
+    <div class="modal" id="voiceModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalHeroName">英雄名称</h2>
+                <button class="close-btn" id="closeModal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="voice-list" id="modalVoiceList">
+                    <!-- 语音列表将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
