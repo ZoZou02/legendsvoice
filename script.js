@@ -110,16 +110,74 @@ const heroData = [
     //         { id: 3, text: '灵魂的价值，重若千钧。', audio: '' }
     //     ]
     // },
-    // {
-    //     id: 12,
-    //     name: '阿狸',
-    //     color: '#d946ef',
-    //     voices: [
-    //         { id: 1, text: '我们心有灵犀，不是吗？', audio: '' },
-    //         { id: 2, text: '大发慈悲？太迟了。', audio: '' },
-    //         { id: 3, text: '想玩个游戏吗？', audio: '' }
-    //     ]
-    // },
+    {
+        id: 12,
+        name: '佐伊',
+        color: '#fb9b35ff',
+        icon: 'static/icon/Zoe.png',
+        modalConfig: {
+            backgroundImage: 'static/icon/skins_Zoe_Splash_0.jpg',
+            gradientColors: ['rgba(251, 155, 53, 0.3)', 'rgba(255, 186, 107, 0.3)']
+        },
+        voices: [
+            // 自我介绍与基本信息
+            { id: 5, text: '他们叫我佐伊', audio: 'static/voice/佐伊/佐伊_5.mp3' },
+            { id: 4, text: 'wow这里好多怪人，太棒了！', audio: 'static/voice/佐伊/佐伊_4.mp3' },
+            
+            // 表达兴奋与喜悦
+            { id: 0, text: '恰恰恰恰恰！', audio: 'static/voice/佐伊/佐伊.mp3' },
+            { id: 1, text: '告诉每个人！', audio: 'static/voice/佐伊/佐伊_1.mp3' },
+            { id: 13, text: '哇哈哈哈哈！', audio: 'static/voice/佐伊/佐伊_13.mp3' },
+            { id: 8, text: '我好厉害啊！', audio: 'static/voice/佐伊/佐伊_8.mp3' },
+            { id: 39, text: '冲啊佐伊！', audio: 'static/voice/佐伊/佐伊_39.mp3' },
+            { id: 6, text: '你应该高兴得炸毛了吧！', audio: 'static/voice/佐伊/佐伊_6.mp3' },
+            
+            // 与人互动交流
+            { id: 9, text: '要不要玩个游戏，拜托了~', audio: 'static/voice/佐伊/佐伊_9.mp3' },
+            { id: 10, text: '交朋友~', audio: 'static/voice/佐伊/佐伊_10.mp3' },
+            { id: 25, text: '我想和人聊天和人玩耍~', audio: 'static/voice/佐伊/佐伊_25.mp3' },
+            { id: 31, text: '你怎么能...这么可爱呢~', audio: 'static/voice/佐伊/佐伊_31.mp3' },
+            { id: 12, text: '喔你这个小笨蛋~', audio: 'static/voice/佐伊/佐伊_12.mp3' },
+            
+            // 表达情感与评价
+            { id: 2, text: '大美人儿！', audio: 'static/voice/佐伊/佐伊_2.mp3' },
+            { id: 3, text: '你丑丑的！', audio: 'static/voice/佐伊/佐伊_3.mp3' },
+            { id: 18, text: '你就是个王八蛋！', audio: 'static/voice/佐伊/佐伊_18.mp3' },
+            { id: 21, text: '坏狗狗！', audio: 'static/voice/佐伊/佐伊_21.mp3' },
+            { id: 26, text: '真赖！', audio: 'static/voice/佐伊/佐伊_26.mp3' },
+            { id: 32, text: '见鬼！', audio: 'static/voice/佐伊/佐伊_32.mp3' },
+            { id: 22, text: '难！以！置！信！', audio: 'static/voice/佐伊/佐伊_22.mp3' },
+            
+            // 身体感受
+            { id: 11, text: '头好晕~', audio: 'static/voice/佐伊/佐伊_11.mp3' },
+            { id: 14, text: '我困了~', audio: 'static/voice/佐伊/佐伊_14.mp3' },
+            { id: 34, text: '我头晕了~', audio: 'static/voice/佐伊/佐伊_34.mp3' },
+            { id: 37, text: '哎哟~！', audio: 'static/voice/佐伊/佐伊_37.mp3' },
+            { id: 29, text: '我怎么会...嗷~', audio: 'static/voice/佐伊/佐伊_29.mp3' },
+            
+            // 动作与活动
+            { id: 16, text: '来吧跳跳~来吧蹦蹦~', audio: 'static/voice/佐伊/佐伊_16.mp3' },
+            { id: 20, text: '我要跳起舞来~', audio: 'static/voice/佐伊/佐伊_20.mp3' },
+            { id: 19, text: '我就要就要~就要去那那那！', audio: 'static/voice/佐伊/佐伊_19.mp3' },
+            { id: 17, text: '我不是在打你', audio: 'static/voice/佐伊/佐伊_17.mp3' },
+            
+            // 拟声词与音乐
+            { id: 15, text: '嘟嘟嘟嘟嘟', audio: 'static/voice/佐伊/佐伊_15.mp3' },
+            { id: 23, text: '啦啦啦噜啦啦啦噜~', audio: 'static/voice/佐伊/佐伊_23.mp3' },
+            { id: 24, text: '嘟嘟嘟噜~', audio: 'static/voice/佐伊/佐伊_24.mp3' },
+            { id: 28, text: 'Bbox', audio: 'static/voice/佐伊/佐伊_28.mp3' },
+            { id: 35, text: 'vio~', audio: 'static/voice/佐伊/佐伊_35.mp3' },
+            { id: 36, text: '哗啦啦！', audio: 'static/voice/佐伊/佐伊_36.mp3' },
+            { id: 38, text: '他们只会哎哎哎噢噢噢~', audio: 'static/voice/佐伊/佐伊_38.mp3' },
+            { id: 7, text: '呃啊啊啊！', audio: 'static/voice/佐伊/佐伊_7.mp3' },
+            { id: 33, text: '呃啊啊啊啊~', audio: 'static/voice/佐伊/佐伊_33.mp3' },
+            
+            // 其他
+            { id: 30, text: '拜拜~', audio: 'static/voice/佐伊/佐伊_30.mp3' },
+            { id: 27, text: '事物的变化~', audio: 'static/voice/佐伊/佐伊_27.mp3' },
+            { id: 40, text: '...等于零', audio: 'static/voice/佐伊/佐伊_40.mp3' }
+        ]
+    },
     {
         id: 13,
         name: '库奇',
@@ -130,24 +188,35 @@ const heroData = [
             gradientColors: ['rgba(222, 222, 222, 0.3)', 'rgba(231, 231, 231, 0.3)']
         },
         voices: [
-              { id: 1, text: '王牌飞行员申请出战！', audio: 'static/voice/库奇/库奇_1.mp3' },
-              { id: 2, text: '十二点钟方向发现敌人！', audio: 'static/voice/库奇/库奇_2.mp3' },
-              { id: 3, text: '就来~就来~', audio: 'static/voice/库奇/库奇_3.mp3' },
-              { id: 4, text: '哦！都乱了套了', audio: 'static/voice/库奇/库奇_4.mp3' },
-              { id: 5, text: '我的尾部有一名敌军!', audio: 'static/voice/库奇/库奇_5.mp3' },
-              { id: 6, text: '开始投弹！', audio: 'static/voice/库奇/库奇_6.mp3' },
-              { id: 7, text: '蜂窝傻瓜', audio: 'static/voice/库奇/库奇_7.mp3' },
-              { id: 8, text: '呃啊啊啊', audio: 'static/voice/库奇/库奇_8.mp3' },
-              { id: 9, text: '大部分人都会打飞机~', audio: 'static/voice/库奇/库奇_9.mp3' },
-              { id: 10, text: '嘻嘻哈哈', audio: 'static/voice/库奇/库奇_10.mp3' },
-              { id: 11, text: '咦嘻嘻~我正在追尾！', audio: 'static/voice/库奇/库奇_11.mp3' },
-              { id: 12, text: '激情在燃烧！', audio: 'static/voice/库奇/库奇_12.mp3' },
-              { id: 13, text: '打得漂亮！', audio: 'static/voice/库奇/库奇_13.mp3' },
-              { id: 14, text: '飙到极限啦！', audio: 'static/voice/库奇/库奇_14.mp3' },
-              { id: 15, text: '随时可以起飞！', audio: 'static/voice/库奇/库奇_15.mp3' },
-              { id: 16, text: '嚯哦！', audio: 'static/voice/库奇/库奇_16.mp3' },
-              { id: 17, text: '呼叫地面控制！', audio: 'static/voice/库奇/库奇_17.mp3' },
-              { id: 18, text: '软蛋！', audio: 'static/voice/库奇/库奇_18.mp3' }
+            // 飞行员身份与自我介绍
+            { id: 1, text: '王牌飞行员申请出战！', audio: 'static/voice/库奇/库奇_1.mp3' },
+            { id: 15, text: '随时可以起飞！', audio: 'static/voice/库奇/库奇_15.mp3' },
+            { id: 9, text: '大部分人都会打飞机~', audio: 'static/voice/库奇/库奇_9.mp3' },
+            
+            // 战斗指令与发现敌人
+            { id: 2, text: '十二点钟方向发现敌人！', audio: 'static/voice/库奇/库奇_2.mp3' },
+            { id: 5, text: '我的尾部有一名敌军!', audio: 'static/voice/库奇/库奇_5.mp3' },
+            { id: 6, text: '开始投弹！', audio: 'static/voice/库奇/库奇_6.mp3' },
+            { id: 11, text: '咦嘻嘻~我正在追尾！', audio: 'static/voice/库奇/库奇_11.mp3' },
+            { id: 17, text: '呼叫地面控制！', audio: 'static/voice/库奇/库奇_17.mp3' },
+            
+            // 战斗状态与情绪表达
+            { id: 12, text: '激情在燃烧！', audio: 'static/voice/库奇/库奇_12.mp3' },
+            { id: 13, text: '打得漂亮！', audio: 'static/voice/库奇/库奇_13.mp3' },
+            { id: 14, text: '飙到极限啦！', audio: 'static/voice/库奇/库奇_14.mp3' },
+            { id: 16, text: '嚯哦！', audio: 'static/voice/库奇/库奇_16.mp3' },
+            { id: 10, text: '嘻嘻哈哈', audio: 'static/voice/库奇/库奇_10.mp3' },
+            
+            // 战斗压力与抱怨
+            { id: 4, text: '哦！都乱了套了', audio: 'static/voice/库奇/库奇_4.mp3' },
+            { id: 8, text: '呃啊啊啊', audio: 'static/voice/库奇/库奇_8.mp3' },
+            
+            // 挑衅与嘲讽
+            { id: 7, text: '蜂窝傻瓜', audio: 'static/voice/库奇/库奇_7.mp3' },
+            { id: 18, text: '软蛋！', audio: 'static/voice/库奇/库奇_18.mp3' },
+            
+            // 回应与其他
+            { id: 3, text: '就来~就来~', audio: 'static/voice/库奇/库奇_3.mp3' }
         ]
     }
 ];
