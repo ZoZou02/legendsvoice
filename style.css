@@ -62,7 +62,6 @@ header > * {
 .lol-logo {
     width: 150px;
     height: auto;
-    margin-bottom: 1rem;
     transition: transform 0.3s ease;
 }
 
@@ -70,9 +69,12 @@ header > * {
     transform: scale(1.05);
 }
 
-header p {
-    font-size: 1.1rem;
+.container header p {
+    font-size: 12px;
     opacity: 0.9;
+    margin: 10px 0 10px 0;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* 英雄头像网格样式 */
