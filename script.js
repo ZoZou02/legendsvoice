@@ -232,6 +232,9 @@ function showHeroVoiceModal(hero) {
     // 显示弹窗
     document.getElementById('voiceModal').style.display = 'flex';
     
+    // 确保语音列表滚动到顶部
+    document.getElementById('modalVoiceList').scrollTop = 0;
+    
     // 禁止页面滚动
     document.body.style.overflow = 'hidden';
 }
@@ -332,4 +335,39 @@ function searchHeroes(keyword) {
 }
 
 // 页面加载完成后初始化
-window.addEventListener('DOMContentLoaded', init);
+window.addEventListener('DOMContentLoaded', function() {
+    init();
+    
+    // 获取按钮元素
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    const scrollToBottomBtn = document.getElementById('scrollToBottom');
+    const voiceList = document.getElementById('modalVoiceList');
+    
+    // 回到顶部按钮点击事件
+    scrollToTopBtn.addEventListener('click', function() {
+        voiceList.scrollTop = 0;
+    });
+    
+    // 去到底部按钮点击事件
+    scrollToBottomBtn.addEventListener('click', function() {
+        voiceList.scrollTop = voiceList.scrollHeight;
+    });
+    
+    // 滚动监听，控制按钮显示/隐藏
+    voiceList.addEventListener('scroll', function() {
+        // 显示/隐藏回到顶部按钮
+        if (voiceList.scrollTop > 100) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+        
+        // 显示/隐藏去到底部按钮
+        const isAtBottom = voiceList.scrollHeight - voiceList.scrollTop - voiceList.clientHeight < 10;
+        if (!isAtBottom) {
+            scrollToBottomBtn.classList.add('visible');
+        } else {
+            scrollToBottomBtn.classList.remove('visible');
+        }
+    });
+});

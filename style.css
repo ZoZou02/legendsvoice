@@ -211,14 +211,64 @@ header > * {
 
 .modal-body {
     padding: 20px;
-    max-height: 60vh;
-    overflow-y: auto;
-    scrollbar-width: none; /* Firefox */
+    max-height: calc(90vh - 70px);
+    position: relative;
     background-color: transparent;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
     border-radius: 0 0 16px 16px;
+}
+
+.voice-list {
+    max-height: calc(60vh - 70px);
+    overflow-y: auto;
+    /* 隐藏滚动条但保持功能 */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.voice-list::-webkit-scrollbar {
+    display: none;
+}
+
+/* 滚动按钮样式 */
+.scroll-btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s, background-color 0.3s;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.scroll-btn.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.scroll-btn:hover {
+        color: rgba(255, 255, 255, 0.9);
+}
+
+.scroll-top {
+    top: -5px;
+}
+
+.scroll-bottom {
+    bottom: -5px;
 }
 
 .modal-body::-webkit-scrollbar {
