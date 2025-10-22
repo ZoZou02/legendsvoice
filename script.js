@@ -33,7 +33,7 @@ const heroData = [
             { id: 11, text: '头好晕~', audio: 'static/voice/佐伊/佐伊_11.mp3' },
             { id: 14, text: '我困了~', audio: 'static/voice/佐伊/佐伊_14.mp3' },
             { id: 34, text: '我头晕了~', audio: 'static/voice/佐伊/佐伊_34.mp3' },
-            { id: 37, text: '哎哟~！', audio: 'static/voice/佐伊/佐伊_37.mp3' },
+            { id: 37, text: '哎哟！', audio: 'static/voice/佐伊/佐伊_37.mp3' },
             { id: 29, text: '我怎么会...嗷~', audio: 'static/voice/佐伊/佐伊_29.mp3' },
             { id: 16, text: '来吧跳跳~来吧蹦蹦~', audio: 'static/voice/佐伊/佐伊_16.mp3' },
             { id: 20, text: '我要跳起舞来~', audio: 'static/voice/佐伊/佐伊_20.mp3' },
@@ -93,9 +93,9 @@ const heroData = [
             gradientColors: ['rgba(16, 185, 129, 0.3)', 'rgba(5, 150, 105, 0.3)']
         },
         voices: [
-            { id: 8, text: '哈哈哈', audio: 'static/voice/提莫/提莫_8.mp3' },
-            { id: 9, text: '哈哈哈哈', audio: 'static/voice/提莫/提莫_9.mp3' },
-            { id: 10, text: '哈哈哈哈哈', audio: 'static/voice/提莫/提莫_10.mp3' },
+            { id: 8, text: '哈哈哈', audio: 'static/voice/提莫/提莫_9.mp3' },
+            { id: 9, text: '呵呵哈哈', audio: 'static/voice/提莫/提莫_8.mp3' },
+            { id: 10, text: '呵呵呵哈哈哈', audio: 'static/voice/提莫/提莫_10.mp3' },
             { id: 1, text: '提莫队长正在待命！', audio: 'static/voice/提莫/提莫.mp3' },
             { id: 11, text: '一，二，三，四', audio: 'static/voice/提莫/提莫_1.mp3' },
             { id: 2, text: '是！长官！', audio: 'static/voice/提莫/提莫_2.mp3' },
