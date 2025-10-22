@@ -21,6 +21,8 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    /* 消除移动端触摸高亮效果 */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .container {
