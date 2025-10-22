@@ -113,11 +113,11 @@ const heroData = [
     {
         id: 12,
         name: '佐伊',
-        color: '#fb9b35ff',
+        color: '#f835fbff',
         icon: 'static/icon/Zoe.png',
         modalConfig: {
             backgroundImage: 'static/icon/skins_Zoe_Splash_0.jpg',
-            gradientColors: ['rgba(251, 155, 53, 0.3)', 'rgba(255, 186, 107, 0.3)']
+            gradientColors: ['rgba(171, 54, 221, 0.3)', 'rgba(243, 202, 79, 0.3)']
         },
         voices: [
             // 自我介绍与基本信息
@@ -181,7 +181,7 @@ const heroData = [
     {
         id: 13,
         name: '库奇',
-        color: '#989898ff',
+        color: '#a09181ff',
         icon: 'static/icon/Corki.png',
         modalConfig: {
             backgroundImage: 'static/icon/skins_Corki_Splash_0.jpg',
@@ -313,7 +313,6 @@ function showHeroVoiceModal(hero) {
     hero.voices.forEach(voice => {
         const voiceItem = document.createElement('div');
         voiceItem.className = 'voice-item';
-        // 移除播放按钮，只保留台词文本
         voiceItem.innerHTML = `<div class="voice-text">${voice.text}</div>`;
         // 添加数据属性用于识别语音
         voiceItem.dataset.heroId = hero.id;
