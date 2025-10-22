@@ -16,6 +16,11 @@ body {
     background-attachment: fixed;
     background-repeat: no-repeat;
     min-height: 100vh;
+    /* 禁用文本选中功能 */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .container {
