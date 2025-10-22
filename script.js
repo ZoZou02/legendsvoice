@@ -123,8 +123,12 @@ const heroData = [
     {
         id: 13,
         name: '库奇',
-        color: '#6366f1',
+        color: '#989898ff',
         icon: 'static/icon/Corki.png',
+        modalConfig: {
+            backgroundImage: 'static/icon/skins_Corki_Splash_0.jpg',
+            gradientColors: ['rgba(79, 70, 229, 0.3)', 'rgba(99, 102, 241, 0.3)']
+        },
         voices: [
               { id: 1, text: '王牌飞行员申请出战！', audio: 'static/voice/库奇/库奇_1.mp3' },
               { id: 2, text: '十二点钟方向发现敌人！', audio: 'static/voice/库奇/库奇_2.mp3' },
@@ -207,17 +211,30 @@ function showHeroVoiceModal(hero) {
     // 设置弹窗标题
     document.getElementById('modalHeroName').textContent = hero.name;
     
-    // 为不同英雄设置不同的弹窗背景
+    // 使用英雄数据中的配置设置弹窗背景
     const modalHeader = document.getElementById('modalHeroName').parentElement;
-    if (hero.name === '库奇' && hero.icon) {
-        // 为库奇设置特定的皮肤背景，确保图片中心填充对齐，降低透明度以显示更多图片内容
-        modalHeader.style.backgroundImage = `linear-gradient(rgba(79, 70, 229, 0.5), rgba(99, 102, 241, 0.5)), url('static/icon/skins_Corki_Splash_0.jpg')`;
+    
+    // 重置样式
+    modalHeader.style.backgroundImage = '';
+    modalHeader.style.backgroundSize = '';
+    modalHeader.style.backgroundPosition = '';
+    modalHeader.style.backgroundRepeat = '';
+    modalHeader.style.background = '';
+    
+    if (hero.modalConfig && hero.modalConfig.backgroundImage) {
+        // 如果英雄配置了背景图片
+        const { backgroundImage, gradientColors } = hero.modalConfig;
+        const gradient = gradientColors && gradientColors.length > 1 
+            ? `linear-gradient(${gradientColors[0]}, ${gradientColors[1]})` 
+            : 'linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5))';
+        
+        modalHeader.style.backgroundImage = `${gradient}, url('${backgroundImage}')`;
         modalHeader.style.backgroundSize = 'cover';
         modalHeader.style.backgroundPosition = 'center';
         modalHeader.style.backgroundRepeat = 'no-repeat';
     } else {
-        // 为其他英雄使用纯色背景，降低透明度
-        modalHeader.style.background = `linear-gradient(${hero.color}55, ${hero.color}88)`;
+        // 为其他英雄使用颜色渐变背景
+        modalHeader.style.background = `linear-gradient(${hero.color}22, ${hero.color}44)`;
     }
     
     // 清空并填充语音列表
