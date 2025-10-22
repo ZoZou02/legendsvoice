@@ -127,7 +127,7 @@ const heroData = [
         icon: 'static/icon/Corki.png',
         modalConfig: {
             backgroundImage: 'static/icon/skins_Corki_Splash_0.jpg',
-            gradientColors: ['rgba(79, 70, 229, 0.3)', 'rgba(99, 102, 241, 0.3)']
+            gradientColors: ['rgba(222, 222, 222, 0.3)', 'rgba(231, 231, 231, 0.3)']
         },
         voices: [
               { id: 1, text: '王牌飞行员申请出战！', audio: 'static/voice/库奇/库奇_1.mp3' },
