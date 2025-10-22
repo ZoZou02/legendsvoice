@@ -226,6 +226,9 @@ header > * {
     /* 隐藏滚动条但保持功能 */
     scrollbar-width: none;
     -ms-overflow-style: none;
+    /* 增加内边距以防止边缘元素放大时被遮挡 */
+    padding: 10px;
+    margin: -10px;
 }
 
 .voice-list::-webkit-scrollbar {
@@ -280,6 +283,9 @@ header > * {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    /* 确保有足够空间显示放大的元素 */
+    position: relative;
+    z-index: 1;
 }
 
 .voice-item {
@@ -299,7 +305,7 @@ header > * {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
     min-height: 60px;
     flex-direction: column;
-    overflow: hidden;
+    /* 移除overflow: hidden以允许放大和动画效果完全显示 */
 }
 
 .voice-item:hover {
