@@ -228,7 +228,11 @@ header > * {
     -ms-overflow-style: none;
     /* 增加内边距以防止边缘元素放大时被遮挡 */
     padding: 10px;
-    margin: -10px;
+    /* margin: -10px; */
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .voice-list::-webkit-scrollbar {
@@ -267,11 +271,11 @@ header > * {
 }
 
 .scroll-top {
-    top: -5px;
+    top: 0px;
 }
 
 .scroll-bottom {
-    bottom: -5px;
+    bottom: 0px;
 }
 
 .modal-body::-webkit-scrollbar {
