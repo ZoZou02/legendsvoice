@@ -178,7 +178,7 @@ const heroData = [
             { id: 40, text: '...等于零', audio: 'static/voice/佐伊/佐伊_40.mp3' }
         ]
     },
-    {
+    {   
         id: 13,
         name: '库奇',
         color: '#a09181ff',
@@ -217,6 +217,29 @@ const heroData = [
             
             // 回应与其他
             { id: 3, text: '就来~就来~', audio: 'static/voice/库奇/库奇_3.mp3' }
+        ]
+    },
+    {
+        id: 14,
+        name: '提莫',
+        color: '#10b981',
+        icon: 'static/icon/Teemo.png',
+        modalConfig: {
+            backgroundImage: 'static/icon/Teemo_Splash_0.jpg',
+            gradientColors: ['rgba(16, 185, 129, 0.3)', 'rgba(5, 150, 105, 0.3)']
+        },
+        voices: [
+            { id: 8, text: '哈哈哈', audio: 'static/voice/提莫/提莫_8.mp3' },
+            { id: 9, text: '哈哈哈哈', audio: 'static/voice/提莫/提莫_9.mp3' },
+            { id: 10, text: '哈哈哈哈哈', audio: 'static/voice/提莫/提莫_10.mp3' },
+            { id: 1, text: '提莫队长正在待命！', audio: 'static/voice/提莫/提莫.mp3' },
+            { id: 11, text: '一，二，三，四', audio: 'static/voice/提莫/提莫_1.mp3' },
+            { id: 2, text: '是！长官！', audio: 'static/voice/提莫/提莫_2.mp3' },
+            { id: 3, text: '我去前面探探路', audio: 'static/voice/提莫/提莫_3.mp3' },
+            { id: 4, text: '整装待发~', audio: 'static/voice/提莫/提莫_4.mp3' },
+            { id: 5, text: '有情况！', audio: 'static/voice/提莫/提莫_5.mp3' },
+            { id: 6, text: '要迅捷！', audio: 'static/voice/提莫/提莫_6.mp3' },
+            { id: 7, text: '正在报告~', audio: 'static/voice/提莫/提莫_7.mp3' },
         ]
     }
 ];
