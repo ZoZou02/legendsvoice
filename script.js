@@ -1,117 +1,7 @@
 // 英雄数据
 const heroData = [
-    // {
-    //     id: 1,
-    //     name: '盖伦',
-    //     color: '#ef4444',
-    //     voices: [
-    //         { id: 1, text: '人在塔在！', audio: '' },
-    //         { id: 2, text: '生命，即是荣耀。', audio: '' },
-    //         { id: 3, text: '正义，与我同在！', audio: '' }
-    //     ]
-    // },
-    // {
-    //     id: 2,
-    //     name: '亚索',
-    //     color: '#0ea5e9',
-    //     voices: [
-    //         { id: 1, text: '死亡如风，常伴吾身。', audio: '' },
-    //         { id: 2, text: '吾虽浪迹天涯，却未迷失本心。', audio: '' },
-    //         { id: 3, text: '长路漫漫，唯剑作伴。', audio: '' }
-    //     ]
-    // },
-    // {
-    //     id: 3,
-    //     name: '拉克丝',
-    //     color: '#8b5cf6',
-    //     voices: [
-    //         { id: 1, text: '照亮前进的道路！', audio: '' },
-    //         { id: 2, text: '我会保护大家的！', audio: '' },
-    //         { id: 3, text: '魔法，是梦想的现实。', audio: '' }
-    //     ]
-    // },
-    // {
-    //     id: 4,
-    //     name: '薇恩',
-    //     color: '#14b8a6',
-    //     voices: [
-    //         { id: 1, text: '让我们来猎杀那些陷入黑暗中的人吧。', audio: '' },
-    //         { id: 2, text: '木已成舟。', audio: '' },
-    //         { id: 3, text: '干净利落。', audio: '' }
-    //     ]
-    // },
-    // {
-    //     id: 5,
-    //     name: '提莫',
-    //     color: '#10b981',
-    //     voices: [
-    //         { id: 1, text: '提莫队长正在待命！', audio: '' },
-    //         { id: 2, text: '一，二，三，四……', audio: '' },
-    //         { id: 3, text: '有什么东西正在动！', audio: '' }
-    //     ]
-    // },
-    // {
-    //     id: 6,
-    //     name: '李青',
-    //     color: '#f59e0b',
-    //     voices: [
-    //         { id: 1, text: '双眼失明丝毫不影响我追捕敌人，因为我能闻到他们身上的恐惧。', audio: '' },
-    //         { id: 2, text: '真正的大师永远都怀着一颗学徒的心。', audio: '' },
-    //         { id: 3, text: '集中起来的意志可以击穿顽石。', audio: '' }
-    //     ]
-    // },
-    // {
-    //     id: 7,
-    //     name: '金克丝',
-    //     color: '#ec4899',
-    //     voices: [
-    //         { id: 1, text: '我有最美好的初衷！', audio: '' },
-    //         { id: 2, text: '规则，就是用来打破的！', audio: '' },
-    //         { id: 3, text: '你是我最喜欢的靶子~', audio: '' }
-    //     ]
-    // },
-    // {
-    //     id: 8,
-    //     name: '卡特琳娜',
-    //     color: '#9333ea',
-    //     voices: [
-    //         { id: 1, text: '暴力可以解决一切！', audio: '' },
-    //         { id: 2, text: '开始大杀特杀吧！', audio: '' },
-    //         { id: 3, text: '为什么？因为我能！', audio: '' }
-    //     ]
-    // },
-    // {
-    //     id: 9,
-    //     name: '孙悟空',
-    //     color: '#eab308',
-    //     voices: [
-    //         { id: 1, text: '俺老孙来也！', audio: '' },
-    //         { id: 2, text: '取经之路才刚刚开始！', audio: '' },
-    //         { id: 3, text: '吃俺老孙一棒！', audio: '' }
-    //     ]
-    // },
-    // {
-    //     id: 10,
-    //     name: '伊泽瑞尔',
-    //     color: '#3b82f6',
-    //     voices: [
-    //         { id: 1, text: '是时候表演真正的技术了！', audio: '' },
-    //         { id: 2, text: '在别的游戏里，像我这么帅的一般都是主角哦！', audio: '' },
-    //         { id: 3, text: '我忙于四处流浪，铸就了现在的我。', audio: '' }
-    //     ]
-    // },
-    // {
-    //     id: 11,
-    //     name: '锤石',
-    //     color: '#475569',
-    //     voices: [
-    //         { id: 1, text: '羊肠小径的另一头，是片光明。', audio: '' },
-    //         { id: 2, text: '我们要怎样进行这令人愉悦的折磨呢？', audio: '' },
-    //         { id: 3, text: '灵魂的价值，重若千钧。', audio: '' }
-    //     ]
-    // },
     {
-        id: 12,
+        id: 1,
         name: '佐伊',
         color: '#f835fbff',
         icon: 'static/icon/Zoe.png',
@@ -179,7 +69,7 @@ const heroData = [
         ]
     },
     {   
-        id: 13,
+        id: 2,
         name: '库奇',
         color: '#a09181ff',
         icon: 'static/icon/Corki.png',
@@ -220,7 +110,7 @@ const heroData = [
         ]
     },
     {
-        id: 14,
+        id: 3,
         name: '提莫',
         color: '#10b981',
         icon: 'static/icon/Teemo.png',
@@ -240,6 +130,22 @@ const heroData = [
             { id: 5, text: '有情况！', audio: 'static/voice/提莫/提莫_5.mp3' },
             { id: 6, text: '要迅捷！', audio: 'static/voice/提莫/提莫_6.mp3' },
             { id: 7, text: '正在报告~', audio: 'static/voice/提莫/提莫_7.mp3' },
+        ]
+    },
+    {
+        id: 4,
+        name: '纳尔',
+        color: '#fb923c',
+        icon: 'static/icon/Gnar.png',
+        modalConfig: {
+            backgroundImage: 'static/icon/Gnar_Splash_0.jpg',
+            gradientColors: ['rgba(251, 146, 60, 0.3)', 'rgba(254, 240, 138, 0.3)']
+        },
+        voices: [
+            { id: 1, text: '纳尔大大~', audio: 'static/voice/纳尔/纳尔.mp3' },
+            { id: 2, text: '咻咻啪啦！', audio: 'static/voice/纳尔/纳尔_1.mp3' },
+            { id: 3, text: '唰嘟叭啦！', audio: 'static/voice/纳尔/纳尔_2.mp3' },
+            { id: 4, text: '咻gi咻gi~', audio: 'static/voice/纳尔/纳尔_3.mp3' }
         ]
     }
 ];
