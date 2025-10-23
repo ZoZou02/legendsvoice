@@ -194,6 +194,15 @@ const heroData = [
             { id: 4, text: '目标已被标记', audio: 'static/voice/慎/慎_3.mp3' },
             { id: 5, text: '再加把劲儿', audio: 'static/voice/慎/慎_4.mp3' },
             { id: 6, text: '你已经死了...', audio: 'static/voice/慎/慎_5.mp3' },
+            { id: 9, text: '步伐要平衡', audio: 'static/voice/慎/慎_8.mp3' },
+            { id: 11, text: '非常荣幸', audio: 'static/voice/慎/慎_10.mp3' },
+            { id: 12, text: '我发现他们不值一提！', audio: 'static/voice/慎/慎_11.mp3' },
+            { id: 13, text: '如果光有那么快...', audio: 'static/voice/慎/慎_12.mp3' },
+            { id: 14, text: '要步步为营', audio: 'static/voice/慎/慎_13.mp3' },
+            { id: 15, text: '没得商量', audio: 'static/voice/慎/慎_14.mp3' },
+            { id: 16, text: '那我出发了', audio: 'static/voice/慎/慎_15.mp3' },
+            { id: 17, text: '利用好阴影', audio: 'static/voice/慎/慎_16.mp3' },
+            { id: 10, text: '（笑）', audio: 'static/voice/慎/慎_9.mp3' },
             { id: 2, text: 'zo~', audio: 'static/voice/慎/慎_1.mp3' },
             { id: 8, text: 'kai~ya~', audio: 'static/voice/慎/慎_7.mp3' }
         ]
@@ -212,6 +221,8 @@ function init() {
         const heroAvatar = document.createElement('div');
         heroAvatar.className = 'hero-avatar';
         heroAvatar.dataset.heroId = hero.id;
+        // 根据英雄颜色设置边框
+        heroAvatar.style.borderColor = hero.color;
         
         // 检查英雄是否有头像图片
         const hasIcon = hero.icon && hero.icon.trim() !== '';
