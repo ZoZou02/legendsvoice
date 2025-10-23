@@ -1,4 +1,5 @@
 // 英雄数据
+// backgroundPosition 可选，默认值为 'top'(center bottom)
 const heroData = [
     {
         id: 1,
@@ -7,7 +8,8 @@ const heroData = [
         icon: 'static/icon/Zoe.png',
         modalConfig: {
             backgroundImage: 'static/icon/skins_Zoe_Splash_0.jpg',
-            gradientColors: ['rgba(171, 54, 221, 0.3)', 'rgba(243, 202, 79, 0.3)']
+            gradientColors: ['rgba(171, 54, 221, 0.3)', 'rgba(243, 202, 79, 0.3)'],
+            backgroundPosition: 'top'
         },
         voices: [
             { id: 5, text: '他们叫我佐伊', audio: 'static/voice/佐伊/佐伊_5.mp3' },
@@ -60,7 +62,8 @@ const heroData = [
         icon: 'static/icon/Corki.png',
         modalConfig: {
             backgroundImage: 'static/icon/skins_Corki_Splash_0.jpg',
-            gradientColors: ['rgba(222, 222, 222, 0.3)', 'rgba(231, 231, 231, 0.3)']
+            gradientColors: ['rgba(222, 222, 222, 0.3)', 'rgba(231, 231, 231, 0.3)'],
+            backgroundPosition: 'center'
         },
         voices: [
             { id: 1, text: '王牌飞行员申请出战！', audio: 'static/voice/库奇/库奇_1.mp3' },
@@ -90,7 +93,8 @@ const heroData = [
         icon: 'static/icon/Teemo.png',
         modalConfig: {
             backgroundImage: 'static/icon/Teemo_Splash_0.jpg',
-            gradientColors: ['rgba(16, 185, 129, 0.3)', 'rgba(5, 150, 105, 0.3)']
+            gradientColors: ['rgba(16, 185, 129, 0.3)', 'rgba(5, 150, 105, 0.3)'],
+            backgroundPosition: 'top'
         },
         voices: [
             { id: 8, text: '哈哈哈', audio: 'static/voice/提莫/提莫_9.mp3' },
@@ -113,7 +117,8 @@ const heroData = [
         icon: 'static/icon/Gnar.png',
         modalConfig: {
             backgroundImage: 'static/icon/Gnar_Splash_0.jpg',
-            gradientColors: ['rgba(251, 146, 60, 0.3)', 'rgba(254, 240, 138, 0.3)']
+            gradientColors: ['rgba(251, 146, 60, 0.3)', 'rgba(254, 240, 138, 0.3)'],
+            backgroundPosition: 'center'
         },
         voices: [
             { id: 1, text: '纳尔大大~', audio: 'static/voice/纳尔/纳尔.mp3' },
@@ -129,7 +134,8 @@ const heroData = [
         icon: 'static/icon/Darius.png',
         modalConfig: {
             backgroundImage: 'static/icon/Darius_Splash_15.jpg',
-            gradientColors: ['rgba(146, 64, 14, 0.3)', 'rgba(234, 88, 12, 0.3)']
+            gradientColors: ['rgba(146, 64, 14, 0.3)', 'rgba(234, 88, 12, 0.3)'],
+            backgroundPosition: 'top'
         },
         voices: [
             { id: 10, text: '【神王】我就是席卷人间的巨浪！', audio: 'static/voice/德莱厄斯/德莱厄斯_25.mp3' },
@@ -178,7 +184,8 @@ const heroData = [
         icon: 'static/icon/Shen.png',
         modalConfig: {
             backgroundImage: 'static/icon/Shen_Splash_0.jpg',
-            gradientColors: ['rgba(59, 130, 246, 0.3)', 'rgba(14, 165, 233, 0.3)']
+            gradientColors: ['rgba(59, 130, 246, 0.3)', 'rgba(14, 165, 233, 0.3)'],
+            backgroundPosition: 'top'
         },
         voices: [
             { id: 7, text: '我们意念合一', audio: 'static/voice/慎/慎_6.mp3' },
@@ -271,7 +278,8 @@ function showHeroVoiceModal(hero) {
         
         modalHeader.style.backgroundImage = `${gradient}, url('${backgroundImage}')`;
         modalHeader.style.backgroundSize = 'cover';
-        modalHeader.style.backgroundPosition = 'top';
+        const backgroundPosition = hero.modalConfig?.backgroundPosition || 'top';
+        modalHeader.style.backgroundPosition = backgroundPosition;
         modalHeader.style.backgroundRepeat = 'no-repeat';
     } else {
         // 为其他英雄使用颜色渐变背景
