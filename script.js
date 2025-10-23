@@ -7,7 +7,7 @@ const heroData = [
         color: '#f835fbff',
         icon: 'static/icon/Zoe.png',
         modalConfig: {
-            backgroundImage: 'static/icon/skins_Zoe_Splash_0.jpg',
+            backgroundImage: 'static/icon/skins_Zoe_Splash_0_compressed.jpg',
             gradientColors: ['rgba(171, 54, 221, 0.3)', 'rgba(243, 202, 79, 0.3)'],
             backgroundPosition: 'top'
         },
@@ -61,7 +61,7 @@ const heroData = [
         color: '#a09181ff',
         icon: 'static/icon/Corki.png',
         modalConfig: {
-            backgroundImage: 'static/icon/skins_Corki_Splash_0.jpg',
+            backgroundImage: 'static/icon/skins_Corki_Splash_0_compressed.jpg',
             gradientColors: ['rgba(222, 222, 222, 0.3)', 'rgba(231, 231, 231, 0.3)'],
             backgroundPosition: 'center'
         },
@@ -92,7 +92,7 @@ const heroData = [
         color: '#10b981',
         icon: 'static/icon/Teemo.png',
         modalConfig: {
-            backgroundImage: 'static/icon/Teemo_Splash_0.jpg',
+            backgroundImage: 'static/icon/Teemo_Splash_0_compressed.jpg',
             gradientColors: ['rgba(16, 185, 129, 0.3)', 'rgba(5, 150, 105, 0.3)'],
             backgroundPosition: 'top'
         },
@@ -116,7 +116,7 @@ const heroData = [
         color: '#fb923c',
         icon: 'static/icon/Gnar.png',
         modalConfig: {
-            backgroundImage: 'static/icon/Gnar_Splash_0.jpg',
+            backgroundImage: 'static/icon/Gnar_Splash_0_compressed.jpg',
             gradientColors: ['rgba(251, 146, 60, 0.3)', 'rgba(254, 240, 138, 0.3)'],
             backgroundPosition: 'center'
         },
@@ -133,7 +133,7 @@ const heroData = [
         color: '#92400e',
         icon: 'static/icon/Darius.png',
         modalConfig: {
-            backgroundImage: 'static/icon/Darius_Splash_15.jpg',
+            backgroundImage: 'static/icon/Darius_Splash_15_compressed.jpg',
             gradientColors: ['rgba(146, 64, 14, 0.3)', 'rgba(234, 88, 12, 0.3)'],
             backgroundPosition: 'top'
         },
@@ -183,13 +183,13 @@ const heroData = [
         color: '#3b82f6',
         icon: 'static/icon/Shen.png',
         modalConfig: {
-            backgroundImage: 'static/icon/Shen_Splash_0.jpg',
+            backgroundImage: 'static/icon/Shen_Splash_0_compressed.jpg',
             gradientColors: ['rgba(59, 130, 246, 0.3)', 'rgba(14, 165, 233, 0.3)'],
             backgroundPosition: 'top'
         },
         voices: [
             { id: 7, text: '我们意念合一', audio: 'static/voice/慎/慎_6.mp3' },
-            { id: 1, text: '执行均衡之力', audio: 'static/voice/慎/慎.mp3' },
+            { id: 1, text: '执行均衡之令', audio: 'static/voice/慎/慎.mp3' },
             { id: 3, text: '看我的吧', audio: 'static/voice/慎/慎_2.mp3' },
             { id: 4, text: '目标已被标记', audio: 'static/voice/慎/慎_3.mp3' },
             { id: 5, text: '再加把劲儿', audio: 'static/voice/慎/慎_4.mp3' },
