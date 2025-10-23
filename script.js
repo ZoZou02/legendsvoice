@@ -11,10 +11,9 @@ function initParallaxEffects() {
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         
-        // 计算移动比例（确保X和Y方向都有足够的移动范围）
-        // 不再限制范围，直接使用计算值以确保两个方向都有明显效果
-        const moveX = ((x / rect.width) - 0.5) * 100;
-        const moveY = ((y / rect.height) - 0.5) * 100;
+        // 计算移动比例（减小移动范围，使效果更加适中）
+        const moveX = ((x / rect.width) - 0.5) * 50;
+        const moveY = ((y / rect.height) - 0.5) * 50;
         
         // 设置背景位置移动
         header.style.setProperty('--bg-position-x', `${50 + moveX}%`);
@@ -27,7 +26,7 @@ function initParallaxEffects() {
         header.style.setProperty('--bg-position-y', '50%');
     });
     
-    // 检查是否支持设备倾斜感应
+    // 检查是否支持设备倾斜感应 - 添加校准提示
     if (window.DeviceMotionEvent && typeof window.DeviceMotionEvent.requestPermission === 'function') {
         // iOS需要用户授权
         header.addEventListener('click', function requestDeviceMotionPermission() {
@@ -49,24 +48,56 @@ function initParallaxEffects() {
         enableDeviceMotion();
     }
     
-    // 启用设备倾斜感应
+    // 启用设备倾斜感应 - 添加初始角度校准
     function enableDeviceMotion() {
+        let initialTiltX = null;
+        let initialTiltY = null;
+        let calibrationTimeout = null;
+        
         window.addEventListener('devicemotion', function(e) {
             if (e.accelerationIncludingGravity) {
-                // 获取设备倾斜角度（限制移动范围）
-                const tiltX = Math.min(Math.max(e.accelerationIncludingGravity.x, -5), 5);
-                const tiltY = Math.min(Math.max(e.accelerationIncludingGravity.y, -5), 5);
+                // 第一次触发时校准初始角度，或者用户重置时
+                if (initialTiltX === null && initialTiltY === null) {
+                    // 记录初始角度，作为基准位置
+                    initialTiltX = e.accelerationIncludingGravity.x;
+                    initialTiltY = e.accelerationIncludingGravity.y;
+                    
+                    // 清除校准超时（如果有的话）
+                    if (calibrationTimeout) {
+                        clearTimeout(calibrationTimeout);
+                    }
+                    
+                    // 30秒后自动重新校准，适应不同的手持姿势
+                    calibrationTimeout = setTimeout(() => {
+                        initialTiltX = null;
+                        initialTiltY = null;
+                    }, 30000);
+                }
                 
-                // 计算背景移动（确保设备倾斜在两个方向都能产生明显效果）
-                // 修正方向，确保在横屏和竖屏时都能正确响应
-                const moveX = tiltX * 15; // 调整敏感度，使水平方向移动更明显
-                const moveY = -tiltY * 15; // 反向以获得更自然的效果
+                // 计算相对于初始角度的倾斜差值
+                const relativeTiltX = e.accelerationIncludingGravity.x - initialTiltX;
+                const relativeTiltY = e.accelerationIncludingGravity.y - initialTiltY;
+                
+                // 限制差值范围，避免极端情况
+                const tiltX = Math.min(Math.max(relativeTiltX, -5), 5);
+                const tiltY = Math.min(Math.max(relativeTiltY, -5), 5);
+                
+                // 计算背景移动（基于相对倾斜变化）
+                const moveX = tiltX * 10; // 调整敏感度，基于相对变化
+                const moveY = -tiltY * 10; // 反向以获得更自然的效果
                 
                 // 设置背景位置
                 header.style.setProperty('--bg-position-x', `${50 + moveX}%`);
                 header.style.setProperty('--bg-position-y', `${50 + moveY}%`);
             }
         });
+        
+        // 监听点击事件，允许用户手动重新校准
+         document.addEventListener('click', () => {
+             // 重置初始角度，下次触发时重新校准
+             initialTiltX = null;
+             initialTiltY = null;
+         });
     }
 }
 
