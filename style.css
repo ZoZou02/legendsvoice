@@ -32,12 +32,10 @@ body {
     background-attachment: fixed;
     background-repeat: no-repeat;
     min-height: 100vh;
-    /* 禁用文本选中功能 */
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    /* 消除移动端触摸高亮效果 */
     -webkit-tap-highlight-color: transparent;
     overflow-x: hidden;
 }
@@ -53,15 +51,33 @@ body {
 
 header {
     text-align: center;
-    padding: 1rem 0;
+    padding: 2rem 1rem; /* 增加内边距，使展示区域更大 */
     margin-bottom: 30px;
-    border-radius: 10px;
+    border-radius: 15px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* 确保header内容在最上层 */
+    z-index: 10;
+    min-height: 200px; /* 确保有足够的高度显示视差效果 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+/* header:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 
+                0 0 30px rgba(171, 54, 221, 0.3);
+} */
+
+/* header的基础样式 */
+
+/* 渐变叠加层，增强视觉层次感 */
 header::before {
     content: '';
     position: absolute;
@@ -70,10 +86,22 @@ header::before {
     right: 0;
     bottom: 0;
     background-image: url('static/banner.jpg');
-    background-size: cover;
-    background-position: center;
-    filter: blur(8px);
+    background-size: 140% 140%; /* 使用百分比而不是cover，确保有足够空间移动 */
+    background-position: var(--bg-position-x, 50%) var(--bg-position-y, 50%);
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    filter: blur(6px) brightness(1.1);
     z-index: 0;
+    transition: background-position 0.15s ease-out; /* 增加过渡时间使效果更平滑 */
+}
+
+/* header:hover::before {
+    transform: scale(1.15);
+} */
+
+/* 鼠标视差效果 */
+.parallax-bg {
+    transition: background-position 0.1s ease-out;
 }
 
 header > * {

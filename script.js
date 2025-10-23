@@ -1,3 +1,75 @@
+// 实现header的视差效果和设备倾斜感应
+function initParallaxEffects() {
+    const header = document.querySelector('header');
+    
+    if (!header) return;
+    
+    // 鼠标移动视差效果
+    header.addEventListener('mousemove', function(e) {
+        // 获取鼠标在header中的位置
+        const rect = header.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        // 计算移动比例（确保X和Y方向都有足够的移动范围）
+        // 不再限制范围，直接使用计算值以确保两个方向都有明显效果
+        const moveX = ((x / rect.width) - 0.5) * 100;
+        const moveY = ((y / rect.height) - 0.5) * 100;
+        
+        // 设置背景位置移动
+        header.style.setProperty('--bg-position-x', `${50 + moveX}%`);
+        header.style.setProperty('--bg-position-y', `${50 + moveY}%`);
+    });
+    
+    // 鼠标离开时恢复原位
+    header.addEventListener('mouseleave', function() {
+        header.style.setProperty('--bg-position-x', '50%');
+        header.style.setProperty('--bg-position-y', '50%');
+    });
+    
+    // 检查是否支持设备倾斜感应
+    if (window.DeviceMotionEvent && typeof window.DeviceMotionEvent.requestPermission === 'function') {
+        // iOS需要用户授权
+        header.addEventListener('click', function requestDeviceMotionPermission() {
+            window.DeviceMotionEvent.requestPermission()
+                .then(permissionState => {
+                    if (permissionState === 'granted') {
+                        enableDeviceMotion();
+                    }
+                })
+                .catch(err => {
+                    console.log('无法获取设备运动权限:', err);
+                });
+            
+            // 只请求一次授权
+            header.removeEventListener('click', requestDeviceMotionPermission);
+        });
+    } else if (window.DeviceMotionEvent) {
+        // 非iOS设备直接启用
+        enableDeviceMotion();
+    }
+    
+    // 启用设备倾斜感应
+    function enableDeviceMotion() {
+        window.addEventListener('devicemotion', function(e) {
+            if (e.accelerationIncludingGravity) {
+                // 获取设备倾斜角度（限制移动范围）
+                const tiltX = Math.min(Math.max(e.accelerationIncludingGravity.x, -5), 5);
+                const tiltY = Math.min(Math.max(e.accelerationIncludingGravity.y, -5), 5);
+                
+                // 计算背景移动（确保设备倾斜在两个方向都能产生明显效果）
+                // 修正方向，确保在横屏和竖屏时都能正确响应
+                const moveX = tiltX * 15; // 调整敏感度，使水平方向移动更明显
+                const moveY = -tiltY * 15; // 反向以获得更自然的效果
+                
+                // 设置背景位置
+                header.style.setProperty('--bg-position-x', `${50 + moveX}%`);
+                header.style.setProperty('--bg-position-y', `${50 + moveY}%`);
+            }
+        });
+    }
+}
+
 // 英雄数据
 // backgroundPosition 可选，默认值为 'top'(center bottom)
 const heroData = [
@@ -472,4 +544,7 @@ window.addEventListener('DOMContentLoaded', function() {
             scrollToBottomBtn.classList.remove('visible');
         }
     });
+    
+    // 初始化视差效果
+    initParallaxEffects();
 });
