@@ -327,16 +327,30 @@ function showHeroVoiceModal(hero) {
     document.body.style.overflow = 'hidden';
 }
 
-// 关闭弹窗
+// 关闭弹窗 - 添加动画效果
 function closeModal() {
-    document.getElementById('voiceModal').style.display = 'none';
-    // 恢复页面滚动
-    document.body.style.overflow = 'auto';
+    const modal = document.getElementById('voiceModal');
+    const modalContent = document.querySelector('.modal-content');
+    
+    // 添加关闭动画类
+    modalContent.classList.add('closing');
+    
     // 停止当前播放的音频
     if (window.currentAudio) {
         window.currentAudio.pause();
         window.currentAudio = null;
     }
+    
+    // 等待动画完成后再隐藏
+    setTimeout(() => {
+        // 隐藏模态框
+        modal.style.display = 'none';
+        // 移除关闭动画类，为下次打开做准备
+        modalContent.classList.remove('closing');
+        // 恢复页面滚动
+        document.body.style.overflow = 'auto';
+    }, 100); // 与动画时长保持一致
+    
     // 重置所有语音项的播放状态
     document.querySelectorAll('.voice-item').forEach(item => {
         item.classList.remove('playing');

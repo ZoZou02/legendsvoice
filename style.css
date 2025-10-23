@@ -5,6 +5,22 @@
     box-sizing: border-box;
 }
 
+/* 隐藏页面滚动条但保留滚动功能 */
+html, body {
+    /* 隐藏垂直滚动条 - Firefox */
+    scrollbar-width: none;
+    /* 隐藏垂直滚动条 - IE/Edge */
+    -ms-overflow-style: none;
+}
+
+/* Chrome、Safari等WebKit浏览器隐藏所有滚动条 */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.voice-list::-webkit-scrollbar,
+.modal::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
     background-color: #0f172a;
@@ -23,6 +39,7 @@ body {
     user-select: none;
     /* 消除移动端触摸高亮效果 */
     -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
 }
 
 .container {
@@ -84,12 +101,47 @@ header > * {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/* 页面加载动画 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* 英雄头像网格样式 */
 .hero-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     gap: 15px;
     justify-items: center;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* 动态背景效果 */
+@keyframes subtleMove {
+    0% { transform: scale(1) translateX(0); }
+    50% { transform: scale(1.03) translateX(-1%); }
+    100% { transform: scale(1) translateX(0); }
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('static/background.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    z-index: -1;
+    animation: subtleMove 20s ease-in-out infinite;
 }
 
 .hero-avatar {
@@ -99,14 +151,13 @@ header > * {
     cursor: pointer;
     overflow: hidden;
     border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 3px solid #ef4444;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 2px solid #333;
     background-color: #1e293b;
-}
-
-.hero-avatar:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3);
+    /* 为移动端优化的触摸反馈 */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    animation: fadeInUp 0.5s ease-out backwards;
 }
 
 .hero-image {
@@ -116,6 +167,28 @@ header > * {
     background: transparent;
     transition: filter 0.3s ease;
 }
+
+/* 英雄头像边框根据英雄颜色变化 */
+.hero-avatar:nth-child(1) { border-color: #a78bfa; } /* 佐伊 */
+.hero-avatar:nth-child(2) { border-color: #60a5fa; } /* 库奇 */
+.hero-avatar:nth-child(3) { border-color: #10b981; } /* 提莫 */
+.hero-avatar:nth-child(4) { border-color: #f97316; } /* 纳尔 */
+.hero-avatar:nth-child(5) { border-color: #dc2626; } /* 德莱厄斯 */
+.hero-avatar:nth-child(6) { border-color: #3b82f6; } /* 慎 */
+
+/* 英雄头像通用悬停效果（保留但简化） */
+.hero-avatar:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+/* 移动端触摸反馈 */
+.hero-avatar:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+}
+
+
 
 .hero-avatar:hover .hero-image {
     filter: brightness(1.2);
@@ -165,22 +238,42 @@ header > * {
     width: 100%;
     max-height: 80vh;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
-    animation: modalFadeIn 0.3s ease;
+    animation: modalFadeIn 0.2s ease-out;
     display: flex;
     flex-direction: column;
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* 模态框打开动画增强 */
 @keyframes modalFadeIn {
     from {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(-20px) scale(0.95);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
+
+/* 模态框关闭动画 */
+@keyframes modalFadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+}
+
+/* 关闭动画类 */
+.modal-content.closing {
+    animation: modalFadeOut 0.2s ease-out;
+}
+
+
 
 .modal-header {
     padding: 40px 20px;
@@ -230,16 +323,19 @@ header > * {
 .voice-list {
     max-height: calc(60vh - 70px);
     overflow-y: auto;
-    /* 隐藏滚动条但保持功能 */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
     /* 增加内边距以防止边缘元素放大时被遮挡 */
     padding: 10px;
     /* margin: -10px; */
     margin-left: -10px;
     margin-right: -10px;
     margin-top: 5px;
-    margin-bottom: 5px;
+}
+
+/* 隐藏模态框中语音列表的滚动条 */
+/* 确保模态框容器也隐藏滚动条 */
+.modal {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .voice-list::-webkit-scrollbar {
@@ -310,26 +406,44 @@ header > * {
     -webkit-backdrop-filter: blur(20px);
     border-radius: 12px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
     min-height: 60px;
     flex-direction: column;
-    /* 移除overflow: hidden以允许放大和动画效果完全显示 */
+    overflow: hidden;
+}
+
+/* 波纹效果样式 */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    animation: ripple-animation 0.6s ease-out;
+    pointer-events: none;
+    z-index: 100;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
 }
 
 .voice-item:hover {
     background-color: rgba(40, 40, 40, 0.6);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
-    transform: translateY(-1px);
+    transform: translateY(-1px) scale(1.01);
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 }
 
 .voice-item:active {
-    transform: translateY(0);
+    transform: scale(0.98);
     background-color: rgba(16, 185, 129, 0.1);
     transition: transform 0.1s ease, background-color 0.1s ease;
 }
@@ -398,13 +512,39 @@ header > * {
                 0 0 15px rgba(139, 92, 246, 0.2);
 }
 
-.voice-item.playing::before {
+/* 音频播放时的频谱动画 */
+@keyframes spectrum-pulse {
+    0%, 100% { transform: scaleY(0.5); opacity: 0.7; }
+    50% { transform: scaleY(1.5); opacity: 1; }
+}
+
+.voice-item.playing::after {
     content: '';
     position: absolute;
-    left: 16px;
-    color: white;
-    font-size: 14px;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 3px;
+    width: 20px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
 }
+
+.voice-item.playing::after::before,
+.voice-item.playing::after::after,
+.voice-item.playing::after span {
+    content: '';
+    width: 3px;
+    background-color: #8b5cf6;
+    border-radius: 3px;
+    animation: spectrum-pulse 1s ease-in-out infinite;
+}
+
+.voice-item.playing::after::before { animation-delay: 0s; }
+.voice-item.playing::after span { animation-delay: 0.2s; }
+.voice-item.playing::after::after { animation-delay: 0.4s; }
 
 @keyframes pulse {
     0% {
