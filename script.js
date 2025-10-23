@@ -121,6 +121,75 @@ const heroData = [
             { id: 3, text: '唰嘟叭啦！', audio: 'static/voice/纳尔/纳尔_2.mp3' },
             { id: 4, text: '咻gi咻gi~', audio: 'static/voice/纳尔/纳尔_3.mp3' }
         ]
+    },
+    {
+        id: 5,
+        name: '德莱厄斯',
+        color: '#92400e',
+        icon: 'static/icon/Darius.png',
+        modalConfig: {
+            backgroundImage: 'static/icon/Darius_Splash_15.jpg',
+            gradientColors: ['rgba(146, 64, 14, 0.3)', 'rgba(234, 88, 12, 0.3)']
+        },
+        voices: [
+            { id: 10, text: '【神王】我就是席卷人间的巨浪！', audio: 'static/voice/德莱厄斯/德莱厄斯_25.mp3' },
+            { id: 1, text: '【神王】我闻到了血腥！', audio: 'static/voice/德莱厄斯/德莱厄斯_8.mp3' },
+            { id: 2, text: '【神王】挣扎，流血，绝不示弱！', audio: 'static/voice/德莱厄斯/德莱厄斯_6.mp3' },
+            { id: 3, text: '【神王】以血还血！', audio: 'static/voice/德莱厄斯/德莱厄斯_26.mp3' },
+            { id: 4, text: '【神王】在此终结！', audio: 'static/voice/德莱厄斯/德莱厄斯_22.mp3' },
+            { id: 5, text: '【神王】就死在这！', audio: 'static/voice/德莱厄斯/德莱厄斯_28.mp3' },
+            { id: 6, text: '【神王】四分五裂', audio: 'static/voice/德莱厄斯/德莱厄斯_30.mp3' },
+            { id: 7, text: '【神王】浩劫降临！', audio: 'static/voice/德莱厄斯/德莱厄斯_29.mp3' },
+            { id: 8, text: '【神王】我赢了，你输了', audio: 'static/voice/德莱厄斯/德莱厄斯_27.mp3' },
+            { id: 9, text: '【神王】我的力量必将彰显！', audio: 'static/voice/德莱厄斯/德莱厄斯_21.mp3' },
+            { id: 11, text: '【神王】还有谁？！', audio: 'static/voice/德莱厄斯/德莱厄斯_34.mp3' },
+            { id: 12, text: '【神王】面对我！', audio: 'static/voice/德莱厄斯/德莱厄斯_35.mp3' },
+            { id: 13, text: '【神王】旗鼓相当的对手...', audio: 'static/voice/德莱厄斯/德莱厄斯_31.mp3' },
+            { id: 14, text: '【神王】我们处于下风...', audio: 'static/voice/德莱厄斯/德莱厄斯_33.mp3' },
+            { id: 15, text: '【神王】待宰的羔羊！', audio: 'static/voice/德莱厄斯/德莱厄斯_13.mp3' },
+            { id: 16, text: '【神王】你的脑袋要归我了！', audio: 'static/voice/德莱厄斯/德莱厄斯_14.mp3' },
+            { id: 17, text: '【神王】我许你自由，在你死后！', audio: 'static/voice/德莱厄斯/德莱厄斯_15.mp3' },
+            { id: 18, text: '【神王】你的头颅会在我手...', audio: 'static/voice/德莱厄斯/德莱厄斯_17.mp3' },
+            { id: 19, text: '【神王】反抗者，死！', audio: 'static/voice/德莱厄斯/德莱厄斯_18.mp3' },
+            { id: 20, text: '【神王】你想去哪儿？！', audio: 'static/voice/德莱厄斯/德莱厄斯_19.mp3' },
+            { id: 21, text: '【神王】你太没劲了！', audio: 'static/voice/德莱厄斯/德莱厄斯_23.mp3' },
+            { id: 22, text: '【神王】面对我！暴君！', audio: 'static/voice/德莱厄斯/德莱厄斯_9.mp3' },
+            { id: 23, text: '【神王】可悲啊', audio: 'static/voice/德莱厄斯/德莱厄斯_11.mp3' },
+            { id: 24, text: '【神王】众神的时代已经终结，你也一样', audio: 'static/voice/德莱厄斯/德莱厄斯_4.mp3' },
+            { id: 25, text: '【神王】旧秩序必被侵袭！', audio: 'static/voice/德莱厄斯/德莱厄斯_12.mp3' },
+            { id: 26, text: '【神王】国王之死，经我之手！', audio: 'static/voice/德莱厄斯/德莱厄斯_20.mp3' },
+            { id: 27, text: '【神王】我的狼群渴望皇室的鲜血！', audio: 'static/voice/德莱厄斯/德莱厄斯_16.mp3' },
+            { id: 28, text: '【神王】抓住心中的野兽...', audio: 'static/voice/德莱厄斯/德莱厄斯_3.mp3' },
+            { id: 29, text: '【神王】狼群已经到你门口了', audio: 'static/voice/德莱厄斯/德莱厄斯_1.mp3' },
+            { id: 30, text: '【神王】谁敢否定！', audio: 'static/voice/德莱厄斯/德莱厄斯_7.mp3' },
+            { id: 31, text: '【神王】自由也好，自治也罢...', audio: 'static/voice/德莱厄斯/德莱厄斯_32.mp3' },
+            { id: 32, text: '【神王】这算什么', audio: 'static/voice/德莱厄斯/德莱厄斯_2.mp3' },
+            { id: 33, text: '【神王】有点痒痒', audio: 'static/voice/德莱厄斯/德莱厄斯_24.mp3' },
+            { id: 34, text: '【神王】神王一死...', audio: 'static/voice/德莱厄斯/德莱厄斯_36.mp3' },
+            { id: 35, text: '【神王】呵哈哈哈哈哈~', audio: 'static/voice/德莱厄斯/德莱厄斯.mp3' },
+            { id: 36, text: '【神王】哈哈哈...', audio: 'static/voice/德莱厄斯/德莱厄斯_5.mp3' },
+            { id: 37, text: '【神王】呵哈哈...', audio: 'static/voice/德莱厄斯/德莱厄斯_10.mp3' }
+        ]
+    },
+    {
+        id: 6,
+        name: '慎',
+        color: '#3b82f6',
+        icon: 'static/icon/Shen.png',
+        modalConfig: {
+            backgroundImage: 'static/icon/Shen_Splash_0.jpg',
+            gradientColors: ['rgba(59, 130, 246, 0.3)', 'rgba(14, 165, 233, 0.3)']
+        },
+        voices: [
+            { id: 7, text: '我们意念合一', audio: 'static/voice/慎/慎_6.mp3' },
+            { id: 1, text: '执行均衡之力', audio: 'static/voice/慎/慎.mp3' },
+            { id: 3, text: '看我的吧', audio: 'static/voice/慎/慎_2.mp3' },
+            { id: 4, text: '目标已被标记', audio: 'static/voice/慎/慎_3.mp3' },
+            { id: 5, text: '再加把劲儿', audio: 'static/voice/慎/慎_4.mp3' },
+            { id: 6, text: '你已经死了...', audio: 'static/voice/慎/慎_5.mp3' },
+            { id: 2, text: 'zo~', audio: 'static/voice/慎/慎_1.mp3' },
+            { id: 8, text: 'kai~ya~', audio: 'static/voice/慎/慎_7.mp3' }
+        ]
     }
 ];
 
@@ -202,7 +271,7 @@ function showHeroVoiceModal(hero) {
         
         modalHeader.style.backgroundImage = `${gradient}, url('${backgroundImage}')`;
         modalHeader.style.backgroundSize = 'cover';
-        modalHeader.style.backgroundPosition = 'center';
+        modalHeader.style.backgroundPosition = 'top';
         modalHeader.style.backgroundRepeat = 'no-repeat';
     } else {
         // 为其他英雄使用颜色渐变背景

@@ -192,7 +192,7 @@ header > * {
     border-radius: 16px 16px 0 0;
     position: relative;
     background-size: cover;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     overflow: hidden;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
