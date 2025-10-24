@@ -61,17 +61,7 @@ function initParallaxEffects() {
                     // 记录初始角度，作为基准位置
                     initialTiltX = e.accelerationIncludingGravity.x;
                     initialTiltY = e.accelerationIncludingGravity.y;
-                    
-                    // 清除校准超时（如果有的话）
-                    if (calibrationTimeout) {
-                        clearTimeout(calibrationTimeout);
-                    }
-                    
-                    // 30秒后自动重新校准，适应不同的手持姿势
-                    calibrationTimeout = setTimeout(() => {
-                        initialTiltX = null;
-                        initialTiltY = null;
-                    }, 30000);
+                
                 }
                 
                 // 计算相对于初始角度的倾斜差值
