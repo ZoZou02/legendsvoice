@@ -302,11 +302,93 @@ const heroData = [
     }
 ];
 
-// 初始化页面
-function init() {
+// 实现图片懒加载
+function lazyLoadImages() {
+    const lazyImages = document.querySelectorAll('img.lazy');
+    
+    if ('IntersectionObserver' in window) {
+        // 使用Intersection Observer API进行懒加载
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const image = entry.target;
+                    image.src = image.dataset.src;
+                    image.classList.remove('lazy');
+                    image.classList.add('loaded');
+                    observer.unobserve(image);
+                }
+            });
+        });
+        
+        lazyImages.forEach(image => imageObserver.observe(image));
+    } else {
+        // 降级处理：使用scroll事件
+        let lazyLoadThrottleTimeout;
+        
+        function lazyLoad() {
+            if (lazyLoadThrottleTimeout) {
+                clearTimeout(lazyLoadThrottleTimeout);
+            }
+            
+            lazyLoadThrottleTimeout = setTimeout(() => {
+                lazyImages.forEach(image => {
+                    const rect = image.getBoundingClientRect();
+                    if ((rect.top <= (window.innerHeight || document.documentElement.clientHeight)) && 
+                        (rect.bottom >= 0) && 
+                        (rect.left <= (window.innerWidth || document.documentElement.clientWidth)) && 
+                        (rect.right >= 0)) {
+                        image.src = image.dataset.src;
+                        image.classList.remove('lazy');
+                        image.classList.add('loaded');
+                    }
+                });
+                
+                if (lazyImages.length === 0) {
+                    document.removeEventListener('scroll', lazyLoad);
+                    window.removeEventListener('resize', lazyLoad);
+                    window.removeEventListener('orientationchange', lazyLoad);
+                }
+            }, 20);
+        }
+        
+        document.addEventListener('scroll', lazyLoad);
+        window.addEventListener('resize', lazyLoad);
+        window.addEventListener('orientationchange', lazyLoad);
+    }
+}
+
+// 创建英雄头像骨架屏
+function createHeroSkeletons(count) {
     const heroGrid = document.getElementById('heroGrid');
     
     // 清空网格
+    heroGrid.innerHTML = '';
+    
+    // 创建骨架屏，使用对应的英雄颜色作为边框
+    for (let i = 0; i < count; i++) {
+        const skeleton = document.createElement('div');
+        skeleton.className = 'hero-avatar skeleton-loading';
+        // 使用对应的英雄颜色作为边框
+        skeleton.style.borderColor = heroData[i]?.color || '#334155';
+        skeleton.innerHTML = `
+            <div class="skeleton-animation"></div>
+            <div class="hero-name-overlay">
+                <div class="skeleton-text"></div>
+            </div>
+        `;
+        heroGrid.appendChild(skeleton);
+    }
+}
+
+// 初始化页面
+function init() {
+    // 先显示骨架屏
+    createHeroSkeletons(heroData.length);
+    
+    // 直接加载实际内容，不再使用模拟延迟
+    const heroGrid = document.getElementById('heroGrid');
+    
+    // 清空骨架屏
     heroGrid.innerHTML = '';
     
     // 动态生成英雄头像网格
@@ -320,15 +402,15 @@ function init() {
         // 检查英雄是否有头像图片
         const hasIcon = hero.icon && hero.icon.trim() !== '';
         
-        // 生成英雄头像内容
-          heroAvatar.innerHTML = `
-              <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background-color: ${hero.color};">
-                  ${hasIcon ? `<img src="${hero.icon}" alt="${hero.name}" class="hero-image">` : `<span style="font-size: 3rem; font-weight: bold; color: white;">${hero.name.charAt(0)}</span>`}
-              </div>
-              <div class="hero-name-overlay">
-                  <h3>${hero.name}</h3>
-              </div>
-          `;
+        // 生成英雄头像内容，使用懒加载
+        heroAvatar.innerHTML = `
+            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background-color: ${hero.color};">
+                ${hasIcon ? `<img data-src="${hero.icon}" alt="${hero.name}" class="hero-image lazy">` : `<span style="font-size: 3rem; font-weight: bold; color: white;">${hero.name.charAt(0)}</span>`}
+            </div>
+            <div class="hero-name-overlay">
+                <h3>${hero.name}</h3>
+            </div>
+        `;
         
         // 添加到网格
         heroGrid.appendChild(heroAvatar);
@@ -356,6 +438,9 @@ function init() {
             closeModal();
         }
     });
+    
+    // 启动图片懒加载
+    lazyLoadImages();
 }
 
 // 显示英雄语音弹窗
